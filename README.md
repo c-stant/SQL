@@ -1,4 +1,4 @@
-  > [!READ THIS]
+  > READ THIS!
 
   # CJ Stanton's SQL Portfolio
 
