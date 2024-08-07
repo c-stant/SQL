@@ -1,5 +1,5 @@
-  > READ THIS!
+  > Hello!
 
-  # CJ Stanton's SQL Portfolio
+  # Claire "CJ" Stanton's SQL Portfolio
 
-  * This code repository contains examples of SQL I've written.
+  This code repository contains examples of SQL I've written.
