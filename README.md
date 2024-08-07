@@ -1,5 +1,5 @@
-> [!READ THIS]
+  > [!READ THIS]
 
-# CJ Stanton's SQL Portfolio
+  # CJ Stanton's SQL Portfolio
 
-* This code repository contains examples of SQL I've written.
+  * This code repository contains examples of SQL I've written.
