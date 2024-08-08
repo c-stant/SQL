@@ -29,62 +29,33 @@ VALUES
 
 #For this project, I used SQL to query the Superstore database to get information about items sold at the store and their prices. 
 
-#Use a SELECT statement to order the items by price.
-SELECT item_name, price
+-- 1. Write a SQL query that orders the items by price.
+
+SELECT (price), item_name
 FROM superstore
-ORDER BY price desc;
+ORDER BY price ASC;
 
-#Show a statistic about the item prices.
-SELECT avg(price)
-FROM superstore;
+-- 2. Write your own SQL query that will show a statistic about the item prices, like a sum, average, minimum, maximum, or count.
 
-#Show a statistic about the price for items in the category of "Kitchen Supplies". 
-SELECT avg(price)
+SELECT COUNT (stock_quantity)
 FROM superstore
 WHERE category="Kitchen Supplies"
-
-
-
--- Write a SQL query that orders the items by price.
-
-SELECT (item_name), price
-FROM superstore
-ORDER BY price ASC
-;
-
--- Write your own SQL query that will show a statistic about the item prices, like a sum, average, minimum, maximum, or count.
-
--- Write your own SQL query that will show a statistic about the price for items in the category of "Kitchen Supplies".
-
-SELECT SUM (stock_quantity), item_name
-FROM superstore
-GROUP BY item_name ASC
-;
-
-SELECT AVG (price), category
-FROM superstore
-WHERE category = "Electronics"
-;
-
-SELECT MIN (price), item_id
-FROM superstore
-GROUP BY item_id
-;
-
-SELECT MAX (price)
-FROM superstore
-WHERE category = "Kitchen Supplies"
-;
-
-SELECT COUNT (price)
-FROM superstore
-WHERE price<=50
-;
-
--- What is the average rating from the Kitchen Supplies category?
+ORDER BY category ASC;
 
 SELECT AVG (average_rating)
 FROM superstore
-WHERE category = "Kitchen Supplies"
-;
+WHERE category="Furnishings"
+ORDER BY average_rating DESC;
 
+-- 3. Write your own SQL query that will show a statistic about the price for items in the category of "Kitchen Supplies".
+
+SELECT SUM (price)
+FROM superstore
+WHERE category="Kitchen Supplies";
+
+-- 4. Come up with your own question about the data and try to answer it using SQL. For example: How many air purifiers are in stock?
+-- What's the average rating for wireless earbuds at the superstore?
+
+SELECT AVG (average_rating)
+FROM superstore
+WHERE category="Electronics";
