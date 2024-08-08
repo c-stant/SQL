@@ -53,9 +53,9 @@ SELECT SUM (price)
 FROM superstore
 WHERE category="Kitchen Supplies";
 
--- 4. Come up with your own question about the data and try to answer it using SQL. For example: How many air purifiers are in stock?
--- What's the average rating for wireless earbuds at the superstore?
+-- 4. Come up with your own question about the data and try to answer it using SQL.
+-- How many electronics are in stock?
 
-SELECT AVG (average_rating)
+SELECT SUM (stock_quantity)
 FROM superstore
 WHERE category="Electronics";
