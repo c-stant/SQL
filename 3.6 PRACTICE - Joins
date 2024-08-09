@@ -149,7 +149,7 @@ WHERE subject='Economics'
 SELECT textbooks.title, courses.current
 FROM courses
 	INNER JOIN textbooks
-    ON courses.courseid = textbooks.courseid
+	ON courses.courseid = textbooks.courseid
 WHERE courses.current='Yes'
 AND courses.subject='Economics'
 ;
@@ -162,11 +162,11 @@ SELECT
     , author.name
 FROM courses
 	INNER JOIN textbooks
-    ON courses.courseid = textbooks.courseid
-    LEFT JOIN authortextbooklink
-    ON textbooks.textbookid = authortextbooklink.textbookid
+	ON courses.courseid = textbooks.courseid
+	LEFT JOIN authortextbooklink
+	ON textbooks.textbookid = authortextbooklink.textbookid
    	LEFT JOIN author
-    ON authortextbooklink.authorid = author.authorid
+	ON authortextbooklink.authorid = author.authorid
 WHERE courses.current='Yes'
 	AND courses.subject='Economics'
 ORDER BY author.name ASC
