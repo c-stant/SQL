@@ -1,0 +1,109 @@
+-- Below is a table created for a series of Spotify Data from the Break Into Tech Course.
+-- Below that are my SQL queries for said data.
+
+
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness decimal(8,7) NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL )
+
+
+
+
+
+
+select *
+from spotifydata
+;
+
+-- 1. What are the top 10 songs with an energy level above 0.5?
+
+select popularity
+, track_name
+, artist_name
+, energy
+from spotifydata
+where energy > 0.5
+order by popularity desc
+limit 10
+;
+
+-- 2. Who has the most top hits?
+
+select popularity
+, track_name
+, artist_name
+from spotifydata
+order by popularity desc
+;
+
+select count (artist_name) as count_name
+, artist_name
+, round (avg (popularity),2) as rounded_avg_pop
+, count (track_name) as tracks
+from spotifydata
+group by artist_name
+order by count_name desc
+;
+
+-- 3. What is the acoustic sound versus the instrumentalness? In the top 10?
+
+select popularity
+, track_name
+, acousticness
+, instrumentalness
+from spotifydata
+order by popularity desc
+limit 10
+;
+
+-- 4. What songs have a tempo above 100 but less than 120?
+
+select track_name
+, tempo
+from spotifydata
+where tempo > 100
+and tempo < 120
+order by tempo asc
+;
+
+-- 5. What tracks are not in 4/4 time?
+
+select track_name
+, time_signature
+from spotifydata
+where time_signature <> 4
+;
+
+-- 6. What artist and tracks are at the bottom 10?
+
+select popularity
+, artist_name
+from spotifydata
+order by popularity asc
+limit 10
+;
+
+-- 7. What are the longest songs and their popularity?
+
+select track_name
+, popularity
+, duration_ms
+from spotifydata
+order by duration_ms desc
+;
